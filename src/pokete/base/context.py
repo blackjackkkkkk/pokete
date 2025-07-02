@@ -1,5 +1,5 @@
 from copy import copy
-from typing import TypeVar
+from typing import Generic, TypeVar
 
 from .game_map import CompatMap
 from .periodic_event_manager import PeriodicEventManager
@@ -7,7 +7,7 @@ from .ui.overview import Overview
 
 T = TypeVar('T')
 
-class Context[T]:
+class Context(Generic[T]):
     def __init__(
         self, pevm: PeriodicEventManager, _map: CompatMap,
         overview: Overview, figure: T
